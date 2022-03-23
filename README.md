@@ -14,13 +14,17 @@ Clone the application, from root of the project run:
 Containers will be initialized with table "api_response". 
 
 Next create virtual env with:
-  python -m venv venv
+- python -m venv venv 
+
 And activate it:
-  source venv/bin/activate
+- source venv/bin/activate
+
 Install requirements:
-  pip install -r requirements.txt
+
+- pip install -r requirements.txt
 
 change directory to "client" and run:
-  python client.py 5000
-5000 - number of requests to server
+- python client.py 5000
+
+where "5000" - number of requests to server
 
