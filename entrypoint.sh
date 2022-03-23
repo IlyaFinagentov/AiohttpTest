@@ -1,2 +1,2 @@
 pip install -r /code/requirements.txt
-python main.py
+python server.py

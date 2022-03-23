@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from aiohttp import web
 
 
@@ -11,9 +13,9 @@ class Handler:
         return web.json_response(
             [
                 {
-                  "request_uuid": "",
-                  "date_start_request": "",
-                  "description": "",
+                  "request_uuid": "some_uuid",
+                  "date_start_request": str(datetime.today()),
+                  "description": "some_description",
                   "attachment": self.build_atachment(depth=int(entity_depth))
                 }
             ]

@@ -3,12 +3,17 @@ version: "3.9"
 services:
   db:
     image: postgres
+    volumes:
+      - ./client/postgres-data:/var/lib/postgresql/data
+      - ./client/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     container_name: Postgres
-    command: postgres -c listen_addresses='*'
     env_file:
       - .env
     ports:
-      - "5432:5432"
+      - '5432:5432'
+    depends_on:
+      - web
+
 
   web:
     container_name: AiohhtpBackend
@@ -19,8 +24,13 @@ services:
       - "8080:8080"
     working_dir: /code
     entrypoint: [ "/bin/bash","/code/entrypoint.sh" ]
-    env_file:
-      - .env
-    depends_on:
-      - db
     restart: always
+
+
+  #  pgadmin:
+  #    image: chorss/docker-pgadmin4
+  #    container_name: PgAdmin
+  #    ports:
+  #      - "5050:5050"
+  #    depends_on:
+  #      - db
