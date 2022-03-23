@@ -1,5 +1,3 @@
-from aiohttp import web
-
 from . import views
 
 
